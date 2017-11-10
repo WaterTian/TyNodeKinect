@@ -29,7 +29,7 @@ if(kinect.open()) {
 		var depthArr = new Uint16Array(depthBuffer.length*0.5);
 		for(var i = 0; i < depthBuffer.length; i+=2) {
 			var depth = (depthBuffer[i+1] << 8) + depthBuffer[i]; //get uint16 data from buffer
-			//if(depth <= 500 || depth >= 3000) depth = 0;
+			if(depth <= 1000 || depth >= 4000) depth = 0;
 			depthArr[j] = depth;
 			j++;
 		}
